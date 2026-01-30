@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Админ — Фортуна</title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="h1">🛠️ Админка</div>
+        <div class="small">Загрузи 5 видео (по слотам) и нажми «Опубликовать раунд».</div>
+      </div>
+      <div class="row">
+        <a class="btn" href="/">На главную</a>
+        <button class="btn danger" id="logoutBtn" style="display:none;">Выйти</button>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="grid">
+      <div class="card" id="loginCard">
+        <div class="h2">Вход</div>
+        <div class="small">Логин/пароль берутся из файла <span class="mono">.env</span>.</div>
+        <div class="sep"></div>
+        <div class="row">
+          <input id="user" placeholder="логин" style="flex:1; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.18); color:var(--text);"/>
+          <input id="pass" type="password" placeholder="пароль" style="flex:1; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.18); color:var(--text);"/>
+        </div>
+        <div style="height:12px;"></div>
+        <button class="btn primary" id="loginBtn">Войти</button>
+        <div class="small" id="loginMsg" style="margin-top:10px;"></div>
+      </div>
+
+      <div class="card" id="panelCard" style="display:none;">
+        <div class="h2">Панель</div>
+        <div class="row" style="justify-content:space-between;">
+          <div class="small">Статус раунда: <b id="roundInfo">—</b></div>
+          <div class="row">
+            <button class="btn primary" id="publishBtn">Опубликовать раунд (24ч)</button>
+            <button class="btn danger" id="clearBtn">Очистить всё</button>
+          </div>
+        </div>
+        <div class="sep"></div>
+
+        <div id="slots"></div>
+        <div class="note" style="margin-top:12px;">
+          Совет: загружай mp4/webm. После публикации пользователи увидят таймер и смогут крутить по очереди.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

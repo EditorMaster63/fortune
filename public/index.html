@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Фортуна — видео призы</title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="h1">🎡 Фортуна</div>
+        <div class="small">Крутить можно по очереди. Если выпало видео — оно сразу исчезает для остальных.</div>
+      </div>
+      <div class="row">
+        <span class="badge">⏳ Раунд: <b id="roundState">нет</b></span>
+        <span class="badge">🧑‍🤝‍🧑 Очередь: <b id="queueSize">0</b></span>
+        <a class="btn" href="/admin.html" style="text-decoration:none;">Админ</a>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="h2">Колесо</div>
+        <div class="wheelWrap">
+          <div class="wheelStage">
+            <div class="pointer"></div>
+            <div id="wheel" class="wheel"></div>
+            <div class="labels" id="labels"></div>
+            <div class="center">
+              <div class="mono" style="text-align:center;">
+                <div style="font-weight:900; font-size:12px; opacity:.8;">ТАЙМЕР</div>
+                <div id="timer" style="font-weight:900; font-size:18px;">--:--:--</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="justify-content:space-between;">
+          <button class="btn primary" id="startBtn">СТАРТ</button>
+          <div class="kv small">
+            <span>Статус:</span> <b id="statusText">готово</b>
+            <span style="margin-left:10px;">Твоя очередь:</span> <b id="myPos">—</b>
+          </div>
+        </div>
+        <div class="note" style="margin-top:12px;">
+          Если видео закончились — жди новый раунд.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="h2">Ячейки (5)</div>
+        <div class="small">Здесь видно, что ещё доступно. «Пусто» — админ не загрузил или раунд закончился.</div>
+        <div class="sep"></div>
+        <div id="slotList" class="small"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modalBack" id="modalBack">
+    <div class="modal">
+      <h3 id="modalTitle">Твой приз</h3>
+      <div class="small" id="modalDesc"></div>
+      <div class="sep"></div>
+      <div class="row" style="justify-content:flex-end;">
+        <a id="watchLink" class="btn" href="#" target="_blank" rel="noopener">Смотреть</a>
+        <a id="downloadLink" class="btn primary" href="#">Скачать</a>
+        <button id="closeModal" class="btn">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/user.js"></script>
+</body>
+</html>
