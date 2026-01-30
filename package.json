@@ -1,0 +1,20 @@
+{
+  "name": "fortune-video-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public fortune wheel site with admin video upload (5 slots), 24h rounds, single-user spin queue.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^5.0.7",
+    "socket.io": "^4.7.5"
+  }
+}

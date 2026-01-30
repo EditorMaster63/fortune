@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: fortune-video-site
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /api/state
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_USER
+        value: admin
+      - key: ADMIN_PASS
+        value: change_me
+      - key: SPIN_LOCK_MS
+        value: "8000"
+      - key: ROUND_HOURS
+        value: "24"
